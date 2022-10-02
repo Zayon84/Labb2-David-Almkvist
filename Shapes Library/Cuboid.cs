@@ -11,6 +11,7 @@ namespace Shapes_Library
     {
         private Vector3 _center;
         private Vector3 _size;
+        private bool _isCube;
 
         public Cuboid(Vector3 center, Vector3 size)
         {
@@ -24,6 +25,12 @@ namespace Shapes_Library
             _size = new Vector3(width, width, width);
         }
 
+        public bool IsCube 
+        {
+            get { return (_size.X == _size.Y) && _size.X == _size.Z ? true : false; }
+            //set; 
+        }
+
         public override float Volume => _size.X * _size.Y * _size.Z;
 
         public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
@@ -32,7 +39,7 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $" @({Center.X}, {Center.Y}, {Center.Z}) : w = {_size.X} h = {_size.Y} l = {_size.Z}";
         }
     }
 }

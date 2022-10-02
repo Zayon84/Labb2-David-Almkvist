@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Shapes_Library
     {
         private Vector2 _center;
         private Vector2 _size;
+        private bool _isSquare;
 
         public Rectangle(Vector2 center, Vector2 size)
         {
@@ -23,6 +25,12 @@ namespace Shapes_Library
             _center = center;
             _size = new Vector2(width, width);
         }
+            
+        public bool IsSquare
+        {
+            get { return _size.X == _size.Y ? true: false; }
+            //set { _isSquare = value; }                        // DO we need this ?
+        }
 
         public override float Circumference => _size.X * 2 + _size.Y * 2;
 
@@ -32,7 +40,7 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $" @({Center.X}, {Center.Y}) : w = {_size.X} h = {_size.Y}" ;
         }
     }
 }
