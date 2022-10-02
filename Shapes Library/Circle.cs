@@ -18,15 +18,20 @@ namespace Shapes_Library
             _radius = radius;
         }
 
-        public override float Circumference => throw new NotImplementedException();
+        public float Radius { get => _radius ;  }
 
-        public override Vector3 Center => throw new NotImplementedException();
+        public override float Circumference => 2 * MathF.PI * _radius;
 
-        public override float Area => throw new NotImplementedException();
+        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
+
+        public override float Area => MathF.PI * _radius * _radius;
 
         public override string ToString()
         {
-            return base.ToString();
+            //Console.WriteLine(new Circle(new Vector2(Center.X,Center.Y),_radius));
+
+           
+            return base.ToString() + $" @({Center.X }, {Center.Y}) : r = {Radius}";
         }
     }
 }

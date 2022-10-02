@@ -18,11 +18,11 @@ namespace Shapes_Library
             _radius = radius;
         }
 
-        public override float Volume => throw new NotImplementedException();
+        public override float Volume => (4 * MathF.PI * _radius * _radius * _radius) / 3;
 
-        public override Vector3 Center => throw new NotImplementedException();
+        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
 
-        public override float Area => throw new NotImplementedException();
+        public override float Area => 4 * _radius * _radius * MathF.PI;
 
         public override string ToString()
         {

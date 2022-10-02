@@ -20,7 +20,7 @@ namespace Shapes_Library
             _point3 = point3;
         }
 
-        public override float Circumference => throw new NotImplementedException();
+        public override float Circumference => CountDistans(_point1, _point2) + CountDistans(_point1, _point2) + CountDistans(_point1, _point2);
 
         public override Vector3 Center => throw new NotImplementedException();
 
@@ -29,6 +29,11 @@ namespace Shapes_Library
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        private float CountDistans(Vector2 point1, Vector2 point2)
+        {
+            return 0;               // To DO: fix proper algoritm
         }
     }
 }

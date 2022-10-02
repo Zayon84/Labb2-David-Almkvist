@@ -24,11 +24,11 @@ namespace Shapes_Library
             _size = new Vector2(width, width);
         }
 
-        public override float Circumference => throw new NotImplementedException();
+        public override float Circumference => _size.X * 2 + _size.Y * 2;
 
-        public override Vector3 Center => throw new NotImplementedException();
+        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
 
-        public override float Area => throw new NotImplementedException();
+        public override float Area => _size.X * _size.Y;
 
         public override string ToString()
         {
