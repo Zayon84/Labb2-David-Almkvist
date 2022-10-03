@@ -1,5 +1,16 @@
 ﻿using System.Numerics;
 
+enum ShapesForm
+{
+    Circle,
+    Rectangle,
+    Square, 
+    Triangle,
+    Sphere,
+    Cuboid,
+    Cube
+}
+
 namespace Shapes_Library
 {
     public abstract class Shape
@@ -7,16 +18,18 @@ namespace Shapes_Library
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
 
-        //public static Shape GenerateShape()
-        //{
-        //    //Shape shape = new Shape();        // TODO: not really but something
-        //    //return new Shape();
-        //}
-
-        public static void GenerateShape()
+        public static int GenerateShape()
         {
-            //Shape shape = new Shape();        // TODO: not really but something
-            //return new Shape();
+            ShapesForm myShape = ShapesForm.Circle;
+            Random rand = new Random();            
+            return (int)myShape;
+        }
+
+        public static Shape GenerateShape2()
+        {
+            Shape shape = new Circle(new Vector2(2,3),5);
+
+            return shape;
         }
     }
 
