@@ -9,20 +9,22 @@ namespace Shapes_Library
 {
     public class Circle : Shapes2D
     {
-        private Vector2 _center;
+        private Vector3 _center;
         private float _radius;
 
         public Circle(Vector2 center, float radius)
         {
-            _center = center;
+            _center = new Vector3(center.X, center.Y, 0); 
             _radius = radius;
         }
+
+        //TODO: Radie skall fixas
 
         public float Radius { get => _radius ;  }
 
         public override float Circumference => 2 * MathF.PI * _radius;
 
-        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
+        public override Vector3 Center => _center;
 
         public override float Area => MathF.PI * _radius * _radius;
 
