@@ -24,11 +24,14 @@ namespace Shapes_Library
 
         public override Vector3 Center => throw new NotImplementedException();
 
-        public override float Area => throw new NotImplementedException();
+        //public override float Area => throw new NotImplementedException();
+        public override float Area => 20.3f;                                                                // Place HOlder number
 
         public override string ToString()
         {
-            return base.ToString();
+            // PLACEHOLDERS                                                                                                 // TODO: fix proper values
+            Vector2 tempCenter = new Vector2(8.1f, 7.1f);
+            return base.ToString() + $"({tempCenter.X}, {tempCenter.Y})\t: p1({_point1}), p2({_point2}), p3({_point3})";
         }
 
         private float CountDistans(Vector2 point1, Vector2 point2)

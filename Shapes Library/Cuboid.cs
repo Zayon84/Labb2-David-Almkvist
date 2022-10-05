@@ -11,7 +11,7 @@ namespace Shapes_Library
     {
         private Vector3 _center;
         private Vector3 _size;
-        private bool _isCube;
+        //private bool _isCube;
 
         public Cuboid(Vector3 center, Vector3 size)
         {
@@ -39,7 +39,9 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            return base.ToString() + $" @({Center.X}, {Center.Y}, {Center.Z}) : w = {_size.X} h = {_size.Y} l = {_size.Z}";
+            string shapeString = IsCube ? "Cube\t@" : base.ToString();
+
+            return shapeString + $"({Center.X}, {Center.Y}, {Center.Z})\t: w = {_size.X} h = {_size.Y} l = {_size.Z}";
         }
     }
 }

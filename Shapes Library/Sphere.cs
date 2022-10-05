@@ -18,15 +18,17 @@ namespace Shapes_Library
             _radius = radius;
         }
 
-        public override float Volume => (4 * MathF.PI * _radius * _radius * _radius) / 3;
+        public float Radius { get => _radius; }
 
-        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
+        public override float Volume => (4 * MathF.PI * Radius * Radius * Radius) / 3;
 
-        public override float Area => 4 * _radius * _radius * MathF.PI;
+        public override Vector3 Center => new Vector3(_center.X, _center.Y, _center.Z);
+
+        public override float Area => 4 * Radius * Radius * MathF.PI;
 
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $"({Center.X}, {Center.Y}, {Center.Z})\t: r = {Radius}";
         }
     }
 }

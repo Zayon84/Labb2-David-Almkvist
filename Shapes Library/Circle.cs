@@ -28,10 +28,7 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            //Console.WriteLine(new Circle(new Vector2(Center.X,Center.Y),_radius));
-
-           
-            return base.ToString() + $" @({Center.X }, {Center.Y}) : r = {Radius}";
+            return base.ToString() + $"({Center.X }, {Center.Y})\t\t: r = {Radius}";
         }
     }
 }
