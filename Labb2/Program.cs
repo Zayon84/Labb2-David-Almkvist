@@ -7,18 +7,9 @@ using System.Numerics;
 
 Console.WriteLine("Labb 2 - Bibliotek för hantering av geometiska figurer.\n");
 
-//Circle myCircle = new Circle(new Vector2(3.0f, 4.0f), 2.0f);
-
-//Console.WriteLine($"This is a {myCircle} @ ({myCircle.Center}: r = {myCircle.Radius})");
-
-//Console.WriteLine(new Circle(new Vector2(3.0f, 4.0f), 2.0f));
-//Console.WriteLine(new Rectangle(new Vector2(3.0f, 4.0f),new Vector2(4.0f, 5.0f)));
-//Console.WriteLine(new Triangle(new Vector2(3.0f, 4.0f),new Vector2(4.0f, 5.0f),new Vector2(2,2)));
-//Console.WriteLine(new Cuboid(new Vector3(3.0f, 4.0f, 5.0f),new Vector3(4.0f, 5.0f,2.0f)));
-//Console.WriteLine(new Sphere(new Vector3(3.0f, 4.0f, 5.0f),5.0f));
-
 float totalAreaSize = 0;
 float sumOFTrianglesCircumference = 0;
+
 int circleCount = 0;
 int rectangleCount = 0;
 int squareCount = 0;
@@ -40,30 +31,26 @@ PrintResults();
 
 void PrintResults()
 {
-    CountTheShapes();
-    Console.WriteLine($"We have a total of {shapesArray.Length} Shapes!");
-    Console.WriteLine();
-    Console.WriteLine($"Of our shapes we have {circleCount} Circles");
-    Console.WriteLine($"Of our shapes we have {rectangleCount} Rectangles");
-    Console.WriteLine($"Of our shapes we have {squareCount} Squares");
-    Console.WriteLine($"Of our shapes we have {triangleCount} Triangles");
-    Console.WriteLine($"Of our shapes we have {sphereCount} Spheres");
-    Console.WriteLine($"Of our shapes we have {CubidCount} Cuboids");
-    Console.WriteLine($"Of our shapes we have {cubeCount} Cubes");
-    Console.WriteLine();
-    
-    //Console.WriteLine("Our shapes are:");
 
     for (int i = 0; i < shapesArray.Length; i++)
     {
         Console.WriteLine($"Shape{i}\tis a {shapesArray[i]}");
     }
+
     Console.WriteLine();
     CalculateArea();
 
-    Console.WriteLine("\t- - - VG - Uppgifter: - - -");
     CalculateCircumferenceOfTrianglesAndPrint();
     CalculateWhoHasBiggestVolume();
+
+    Console.WriteLine();
+    CountTheShapes();
+    Console.WriteLine($"Of our shapes we have: \n" +
+        $"{circleCount} Circles");
+    Console.WriteLine($"{rectangleCount} Rectangles and {squareCount} Squares");
+    Console.WriteLine($"{triangleCount} Triangles");
+    Console.WriteLine($"{sphereCount} Spheres");
+    Console.WriteLine($"{CubidCount} Cuboids and {cubeCount} Cubes");
 }
 
 void CalculateArea()

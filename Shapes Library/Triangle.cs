@@ -24,14 +24,16 @@ namespace Shapes_Library
 
         public override Vector3 Center => throw new NotImplementedException();
 
-        //public override float Area => throw new NotImplementedException();
-        public override float Area => 20.3f;                                                                // Place HOlder number
+        public override float Area => CalculateTriangleArea(); 
 
         public override string ToString()
         {
             // PLACEHOLDERS                                                                                                 // TODO: fix proper values
             Vector2 tempCenter = new Vector2(8.1f, 7.1f);
-            return base.ToString() + $"({tempCenter.X:f1} , {tempCenter.Y:f1})\t\t: p1({_point1.X:f1} {_point1.Y:f1}), p2({_point2.X:f1} {_point2.Y:f1}), p3({_point3.X:f1} {_point3.Y:f1}) ¤¤ C = {Circumference}";
+            return base.ToString() + $"({tempCenter.X:f1} , {tempCenter.Y:f1})\t\t: " +
+                $"p1({_point1.X:f1} {_point1.Y:f1}), " +
+                $"p2({_point2.X:f1} {_point2.Y:f1}), " +
+                $"p3({_point3.X:f1} {_point3.Y:f1})";
         }
 
         private float CountDistans(Vector2 point1, Vector2 point2)
@@ -40,17 +42,11 @@ namespace Shapes_Library
             return distance.Length();
         }
 
-        private float GetMyArea()
+        private float CalculateTriangleArea()
         {
-            float a = CountDistans(_point1, _point2);
-            float b = CountDistans(_point1, _point3);
-            float c = CountDistans(_point3, _point2);
-
-            if (a > b)
-            {
-
-            }
-            return 0;
+            float[] pointsDistans = { CountDistans(_point1, _point2), CountDistans(_point1, _point3), CountDistans(_point3, _point2) };
+            Array.Sort(pointsDistans);
+            return (pointsDistans[0] * pointsDistans[1]) / 2;
         }
     }
 }

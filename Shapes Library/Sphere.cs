@@ -28,7 +28,7 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            return base.ToString() + $"({Center.X:f1} , {Center.Y:f1} , {Center.Z:f1})\t: r = {Radius:f1} -- V ={Volume}";
+            return base.ToString() + $"({Center.X:f1} , {Center.Y:f1} , {Center.Z:f1})\t: r = {Radius:f1}";
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Shapes_Library
     public abstract class Shape
     {
         static Random rand = new Random();
-        static int randomSizeRange = 10;
+        static int randomSizeRange = 100;
 
         public abstract Vector3 Center { get; }
         public abstract float Area { get; }
