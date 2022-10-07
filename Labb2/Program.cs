@@ -44,13 +44,7 @@ void PrintResults()
     CalculateWhoHasBiggestVolume();
 
     Console.WriteLine();
-    CountTheShapes();
-    Console.WriteLine($"Of our shapes we have: \n" +
-        $"{circleCount} Circles");
-    Console.WriteLine($"{rectangleCount} Rectangles and {squareCount} Squares");
-    Console.WriteLine($"{triangleCount} Triangles");
-    Console.WriteLine($"{sphereCount} Spheres");
-    Console.WriteLine($"{CubidCount} Cuboids and {cubeCount} Cubes");
+    PrintCountResults();
 }
 
 void CalculateArea()
@@ -107,7 +101,13 @@ void CalculateWhoHasBiggestVolume()
 
 void PrintCountResults()
 {
-
+    CountTheShapes();
+    Console.WriteLine($"Of our shapes we have: \n" +
+        $"{circleCount} Circles");
+    Console.WriteLine($"{rectangleCount} Rectangles and {squareCount} Squares");
+    Console.WriteLine($"{triangleCount} Triangles");
+    Console.WriteLine($"{sphereCount} Spheres");
+    Console.WriteLine($"{CubidCount} Cuboids and {cubeCount} Cubes");
 }
 
 void CountTheShapes()

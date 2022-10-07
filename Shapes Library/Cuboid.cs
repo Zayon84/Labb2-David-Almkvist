@@ -40,7 +40,7 @@ namespace Shapes_Library
         {
             string shapeString = IsCube ? "Cube\t@" : base.ToString();
 
-            return shapeString + $"({Center.X:f1} , {Center.Y:f1}, {Center.Z:f1})\t: w = {_size.X:f1}, h = {_size.Y:f1}, l = {_size.Z:f1} -- V = {Volume}";
+            return shapeString + $"({Center.X:f1} , {Center.Y:f1}, {Center.Z:f1})\t: w = {_size.X:f1}, h = {_size.Y:f1}, l = {_size.Z:f1}";
         }
     }
 }
