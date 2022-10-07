@@ -10,31 +10,29 @@ namespace Shapes_Library
 {
     public class Rectangle : Shapes2D
     {
-        private Vector2 _center;
+        private Vector3 _center;
         private Vector2 _size;
-        //private bool _isSquare;
 
         public Rectangle(Vector2 center, Vector2 size)
         {
-            _center = center;
+            _center = new Vector3(center.X, center.Y, 0);
             _size = size;
         }
 
         public Rectangle(Vector2 center, float width)
         {
-            _center = center;
+            _center = new Vector3(center.X, center.Y, 0);
             _size = new Vector2(width, width);
         }
             
         public bool IsSquare
         {
             get { return _size.X == _size.Y ? true: false; }
-            //set { _isSquare = value; }                        // DO we need this ?
         }
 
         public override float Circumference => _size.X * 2 + _size.Y * 2;
 
-        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
+        public override Vector3 Center => _center;
 
         public override float Area => _size.X * _size.Y;
 

@@ -28,12 +28,6 @@ for (int i = 0; i < shapesArray.Length; i++)
 
 PrintResults();
 
-Vector2 a = new Vector2(5, 5);
-Vector2 b = new Vector2(2, 2);
-Vector2 c = a - b;
-Console.WriteLine("HAAAAAAAAAAAAA" + c);
-Console.WriteLine(c.Length());
-
 void PrintResults()
 {
     //String placeHolderNumber = "4";
@@ -54,6 +48,7 @@ void PrintResults()
     }
     Console.WriteLine();
     CalculateArea();
+
     Console.WriteLine("\t- - - VG - Uppgifter: - - -");
     CalculateCircumferenceOfTriangles();
     CalculateWhoHasBiggestVolume();

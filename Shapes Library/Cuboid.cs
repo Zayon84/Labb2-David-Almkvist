@@ -28,12 +28,11 @@ namespace Shapes_Library
         public bool IsCube 
         {
             get { return (_size.X == _size.Y) && _size.X == _size.Z ? true : false; }
-            //set; 
         }
 
         public override float Volume => _size.X * _size.Y * _size.Z;
 
-        public override Vector3 Center => new Vector3(_center.X, _center.Y, 0);
+        public override Vector3 Center => _center;
 
         public override float Area => ((_size.X * _size.Y) + (_size.Y * _size.Z) + (_size.Z * _size.X) )* 2;
 
@@ -41,7 +40,7 @@ namespace Shapes_Library
         {
             string shapeString = IsCube ? "Cube\t@" : base.ToString();
 
-            return shapeString + $"({Center.X}, {Center.Y}, {Center.Z})\t: w = {_size.X} h = {_size.Y} l = {_size.Z}";
+            return shapeString + $"({Center.X}, {Center.Y}, {Center.Z})\t: w = {_size.X}, h = {_size.Y}, l = {_size.Z}";
         }
     }
 }
