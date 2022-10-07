@@ -18,8 +18,6 @@ namespace Shapes_Library
             _radius = radius;
         }
 
-        //TODO: Radie skall fixas
-
         public float Radius { get => _radius ;  }
 
         public override float Circumference => 2 * MathF.PI * _radius;

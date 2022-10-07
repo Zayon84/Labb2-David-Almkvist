@@ -26,17 +26,6 @@ namespace Shapes_Library
             Shape myShape;
             ShapeForm myShapeForm = (ShapeForm)rand.Next(Enum.GetNames(typeof(ShapeForm)).Length);
 
-            //myShape = myShapeForm switch
-            //{
-            //    ShapesForm.Circle => new Circle(new Vector2(5.0f, 2.0f), 3.0f),
-            //    ShapesForm.Rectangle => new Rectangle(new Vector2(3.0f, 4.0f), new Vector2(4.0f, 5.0f)),
-            //    ShapesForm.Square => new Rectangle(new Vector2(3.0f, 4.0f), 5),
-            //    ShapesForm.Triangle => new Triangle(new Vector2(3.0f, 5.0f), new Vector2(7.0f, 3.2f), new Vector2(9.0f, 2.0f)),
-            //    ShapesForm.Sphere => new Sphere(new Vector3(3.0f, 3.0f, 3.0f), 7.0f),
-            //    ShapesForm.Cuboid => new Cuboid(new Vector3(5.0f, 5.0f, 5.0f), new Vector3(3.0f, 2.0f, 4.0f)),
-            //    ShapesForm.Cube => new Cuboid(new Vector3(4.0f, 4.0f, 4.0f), 5.0f)
-            //};
-
             myShape = myShapeForm switch
             {
                 ShapeForm.Circle => new Circle(new Vector2(RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
@@ -51,21 +40,25 @@ namespace Shapes_Library
             return myShape;
         }
 
-        public static Shape GenerateShape2()
+        public static Shape GenerateShape(Vector3 center)
         {
-            Shape shape = new Circle(new Vector2(2.3f,3.0f),5);
+            Shape shape = new Circle(new Vector2(center.X,center.Y),5);
+
+            Shape myShape;
+            ShapeForm myShapeForm = (ShapeForm)rand.Next(Enum.GetNames(typeof(ShapeForm)).Length);
+
+            myShape = myShapeForm switch
+            {
+                ShapeForm.Circle => new Circle(new Vector2(center.X, center.Y), RandomizeFloat()),
+                ShapeForm.Rectangle => new Rectangle(new Vector2(center.X, center.Y), new Vector2(RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Square => new Rectangle(new Vector2(center.X,center.Y), RandomizeFloat()),
+                ShapeForm.Triangle => new Triangle(new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Sphere => new Sphere(new Vector3(center.X,center.Y,center.Z), RandomizeFloat()),
+                ShapeForm.Cuboid => new Cuboid(new Vector3(center.X, center.Y, center.Z), new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Cube => new Cuboid(new Vector3(center.X, center.Y, center.Z), RandomizeFloat())
+            };
 
             return shape;
-        }
-        //private Vector3 RandomizeVector3()
-        //{
-
-        //    return new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat());
-        //}
-
-        static Vector2 RandomizeVector2()
-        {
-            return new Vector2( RandomizeFloat(), RandomizeFloat());
         }
 
         static float RandomizeFloat()

@@ -11,7 +11,6 @@ namespace Shapes_Library
     {
         private Vector3 _center;
         private Vector3 _size;
-        //private bool _isCube;
 
         public Cuboid(Vector3 center, Vector3 size)
         {
