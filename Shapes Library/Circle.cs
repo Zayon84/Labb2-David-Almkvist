@@ -30,7 +30,7 @@ namespace Shapes_Library
 
         public override string ToString()
         {
-            return base.ToString() + $"({Center.X }, {Center.Y})\t\t: r = {Radius}";
+            return base.ToString() + $"({Center.X:f1} , {Center.Y:f1})\t\t: r = {Radius:f1}";
         }
     }
 }

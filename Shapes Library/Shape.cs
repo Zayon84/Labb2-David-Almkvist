@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-enum ShapesForm
+enum ShapeForm
 {
     Circle,
     Rectangle,
@@ -24,7 +24,7 @@ namespace Shapes_Library
         public static Shape GenerateShape()
         {
             Shape myShape;
-            ShapesForm myShapeForm = (ShapesForm)rand.Next(Enum.GetNames(typeof(ShapesForm)).Length);
+            ShapeForm myShapeForm = (ShapeForm)rand.Next(Enum.GetNames(typeof(ShapeForm)).Length);
 
             //myShape = myShapeForm switch
             //{
@@ -39,13 +39,13 @@ namespace Shapes_Library
 
             myShape = myShapeForm switch
             {
-                ShapesForm.Circle => new Circle(new Vector2(RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
-                ShapesForm.Rectangle => new Rectangle(new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat())),
-                ShapesForm.Square => new Rectangle(new Vector2(RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
-                ShapesForm.Triangle => new Triangle(new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat())),
-                ShapesForm.Sphere => new Sphere(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
-                ShapesForm.Cuboid => new Cuboid(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat())),
-                ShapesForm.Cube => new Cuboid(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), RandomizeFloat())
+                ShapeForm.Circle => new Circle(new Vector2(RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
+                ShapeForm.Rectangle => new Rectangle(new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Square => new Rectangle(new Vector2(RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
+                ShapeForm.Triangle => new Triangle(new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat()), new Vector2(RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Sphere => new Sphere(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), RandomizeFloat()),
+                ShapeForm.Cuboid => new Cuboid(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat())),
+                ShapeForm.Cube => new Cuboid(new Vector3(RandomizeFloat(), RandomizeFloat(), RandomizeFloat()), RandomizeFloat())
             };
 
             return myShape;
@@ -70,7 +70,7 @@ namespace Shapes_Library
 
         static float RandomizeFloat()
         {
-            return (float)rand.NextDouble() * randomSizeRange;
+            return (float)rand.NextSingle() * randomSizeRange;
         }
 
         public override string ToString()

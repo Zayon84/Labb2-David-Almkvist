@@ -2,6 +2,7 @@
 // David Almvkvist - Sep 2022
 
 using Shapes_Library;
+using System.Data.SqlTypes;
 using System.Numerics;
 
 Console.WriteLine("Labb 2 - Bibliotek för hantering av geometiska figurer.\n");
@@ -17,6 +18,15 @@ Console.WriteLine("Labb 2 - Bibliotek för hantering av geometiska figurer.\n");
 //Console.WriteLine(new Sphere(new Vector3(3.0f, 4.0f, 5.0f),5.0f));
 
 float totalAreaSize = 0;
+float sumOFTrianglesCircumference = 0;
+int circleCount = 0;
+int rectangleCount = 0;
+int squareCount = 0;
+int triangleCount = 0;
+int sphereCount = 0;
+int CubidCount = 0;
+int cubeCount = 0;
+
 
 Shape[] shapesArray = new Shape[20];
 
@@ -30,16 +40,18 @@ PrintResults();
 
 void PrintResults()
 {
-    //String placeHolderNumber = "4";
-
-    //Console.WriteLine($"We have a total of {shapesArray.Length} Shapes!");
-    //Console.WriteLine();
-    //Console.WriteLine($"Of our shapes we have {placeHolderNumber} Circles");
-    //Console.WriteLine($"Of our shapes we have {placeHolderNumber} Rectangles");
-    //Console.WriteLine($"Of our shapes we have {placeHolderNumber} Triangles");
-    //Console.WriteLine($"Of our shapes we have {placeHolderNumber} Spheres");
-    //Console.WriteLine($"Of our shapes we have {placeHolderNumber} Cuboids");
-
+    CountTheShapes();
+    Console.WriteLine($"We have a total of {shapesArray.Length} Shapes!");
+    Console.WriteLine();
+    Console.WriteLine($"Of our shapes we have {circleCount} Circles");
+    Console.WriteLine($"Of our shapes we have {rectangleCount} Rectangles");
+    Console.WriteLine($"Of our shapes we have {squareCount} Squares");
+    Console.WriteLine($"Of our shapes we have {triangleCount} Triangles");
+    Console.WriteLine($"Of our shapes we have {sphereCount} Spheres");
+    Console.WriteLine($"Of our shapes we have {CubidCount} Cuboids");
+    Console.WriteLine($"Of our shapes we have {cubeCount} Cubes");
+    Console.WriteLine();
+    
     //Console.WriteLine("Our shapes are:");
 
     for (int i = 0; i < shapesArray.Length; i++)
@@ -50,7 +62,7 @@ void PrintResults()
     CalculateArea();
 
     Console.WriteLine("\t- - - VG - Uppgifter: - - -");
-    CalculateCircumferenceOfTriangles();
+    CalculateCircumferenceOfTrianglesAndPrint();
     CalculateWhoHasBiggestVolume();
 }
 
@@ -63,31 +75,84 @@ void CalculateArea()
     Console.WriteLine();
 }
 
-void CalculateCircumferenceOfTriangles()
+void CalculateCircumferenceOfTrianglesAndPrint()
 {
-    Console.WriteLine("\t - Circumference -  TO DO !!!");
-                                                                // TO DO:
+    foreach (var shape in shapesArray)
+    {
+        if (shape is Triangle)
+        {
+            Triangle tempTriangle = (Triangle)shape;
+            sumOFTrianglesCircumference += tempTriangle.Circumference;
+        }
+    }
+
+    Console.WriteLine($"The Total Circumference of the Triangles is: {sumOFTrianglesCircumference}");
 }
 
 void CalculateWhoHasBiggestVolume()
 {
-    Console.WriteLine("\t - Volume -  TO DO !!!");
-    //                                                                                            //  TO DO:
     int indexBiggest = -1;
     float biggestVolume = 0;
     for (int i = 0; i < shapesArray.Length; i++)
     {
         if (shapesArray[i] is Shape3D)
         {
-            
+            Shape3D currentShape = (Shape3D)shapesArray[i];
+            float currentVolume = currentShape.Volume;
+
+            if (currentVolume > biggestVolume)
+            {
+                indexBiggest = i;
+                biggestVolume = currentVolume;
+            }
         }
     }
+    if (indexBiggest == -1)
+    {
+        Console.WriteLine("Of our 20 shapes, non was a 3D Shape");
+    }
+    else
+    {
+        Console.WriteLine($"The Biggest Volume Found was: {biggestVolume} and was from array nr {indexBiggest} ");
 
-    //foreach (Shape3D shape in shapesArray)
-    //{
-    //    if (shape.Volume > biggestVolume)
-    //    {
-    //        biggestVolume = shape.Volume;
-    //    }
-    //}
+    }
+}
+
+void PrintCountResults()
+{
+
+}
+
+void CountTheShapes()
+{
+    foreach (Shape shape in shapesArray)
+    {
+        if (shape is Circle) { circleCount++; }
+        else if (shape is Rectangle) 
+        {
+            Rectangle currentShape = (Rectangle)shape;
+            if (currentShape.IsSquare)
+            {
+                squareCount++;
+            }
+            else
+            {
+                rectangleCount++;
+            }
+        }
+        else if (shape is Triangle) { triangleCount++; } 
+        else if (shape is Sphere) { sphereCount++; }
+        else if (shape is Cuboid) 
+        {
+            Cuboid currentShape = (Cuboid)shape;
+            if (currentShape.IsCube)
+            {
+                cubeCount++;
+            }
+            else
+            {
+                CubidCount++;
+            }
+        }
+    }
 }

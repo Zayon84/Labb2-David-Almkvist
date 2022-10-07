@@ -39,7 +39,7 @@ namespace Shapes_Library
         public override string ToString()
         {
             string shapeString = IsSquare ? "Square\t@" : base.ToString();
-            return shapeString + $"({Center.X}, {Center.Y})\t\t: w = {_size.X} h = {_size.Y}" ;
+            return shapeString + $"({Center.X:f1} , {Center.Y:f1})\t\t: w = {_size.X:f1} h = {_size.Y:f1}" ;
         }
     }
 }

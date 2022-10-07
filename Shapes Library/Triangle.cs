@@ -31,13 +31,26 @@ namespace Shapes_Library
         {
             // PLACEHOLDERS                                                                                                 // TODO: fix proper values
             Vector2 tempCenter = new Vector2(8.1f, 7.1f);
-            return base.ToString() + $"({tempCenter.X}, {tempCenter.Y})\t: p1({_point1}), p2({_point2}), p3({_point3})";
+            return base.ToString() + $"({tempCenter.X:f1} , {tempCenter.Y:f1})\t\t: p1({_point1.X:f1} {_point1.Y:f1}), p2({_point2.X:f1} {_point2.Y:f1}), p3({_point3.X:f1} {_point3.Y:f1}) ¤¤ C = {Circumference}";
         }
 
         private float CountDistans(Vector2 point1, Vector2 point2)
         {
             Vector2 distance = point1 - point2;
             return distance.Length();
+        }
+
+        private float GetMyArea()
+        {
+            float a = CountDistans(_point1, _point2);
+            float b = CountDistans(_point1, _point3);
+            float c = CountDistans(_point3, _point2);
+
+            if (a > b)
+            {
+
+            }
+            return 0;
         }
     }
 }
