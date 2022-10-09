@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-enum ShapeForm
+public enum ShapeForm
 {
     Circle,
     Rectangle,

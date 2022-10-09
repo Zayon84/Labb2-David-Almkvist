@@ -15,7 +15,7 @@ int rectangleCount = 0;
 int squareCount = 0;
 int triangleCount = 0;
 int sphereCount = 0;
-int CubidCount = 0;
+int CuboidCount = 0;
 int cubeCount = 0;
 
 
@@ -95,7 +95,6 @@ void CalculateWhoHasBiggestVolume()
     else
     {
         Console.WriteLine($"The Biggest Volume Found was: {biggestVolume} and was from array nr {indexBiggest} ");
-
     }
 }
 
@@ -107,7 +106,7 @@ void PrintCountResults()
     Console.WriteLine($"{rectangleCount} Rectangles and {squareCount} Squares");
     Console.WriteLine($"{triangleCount} Triangles");
     Console.WriteLine($"{sphereCount} Spheres");
-    Console.WriteLine($"{CubidCount} Cuboids and {cubeCount} Cubes");
+    Console.WriteLine($"{CuboidCount} Cuboids and {cubeCount} Cubes");
 }
 
 void CountTheShapes()
@@ -138,8 +137,24 @@ void CountTheShapes()
             }
             else
             {
-                CubidCount++;
+                CuboidCount++;
             }
         }
     }
+    ShapesCountList();
+}
+
+void ShapesCountList()
+{
+    int max = 0;
+    string shapeName = "";
+    if (circleCount > max)  {   shapeName = "Circle";   max = circleCount;  }
+    if (rectangleCount > max)  {   shapeName = "rectangle";   max = rectangleCount;  }
+    if (squareCount > max)  {   shapeName = "Square";   max = squareCount;  }
+    if (triangleCount > max)  {   shapeName = "Triangle";   max = triangleCount;  }
+    if (sphereCount > max)  {   shapeName = "Sphere";   max = sphereCount;  }
+    if (CuboidCount > max)  {   shapeName = "Cuboid";   max = CuboidCount;  }
+    if (cubeCount > max)  {   shapeName = "Cube";   max = cubeCount;  }
+
+    Console.WriteLine($"The most common shape was {shapeName} which occurred {max} times.");
 }
