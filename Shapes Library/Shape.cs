@@ -42,7 +42,7 @@ namespace Shapes_Library
 
         public static Shape GenerateShape(Vector3 center)
         {
-            Shape shape = new Circle(new Vector2(center.X,center.Y),5);
+            //Shape shape = new Circle(new Vector2(center.X,center.Y),5);
 
             Shape myShape;
             ShapeForm myShapeForm = (ShapeForm)rand.Next(Enum.GetNames(typeof(ShapeForm)).Length);
@@ -58,7 +58,7 @@ namespace Shapes_Library
                 ShapeForm.Cube => new Cuboid(new Vector3(center.X, center.Y, center.Z), RandomizeFloat())
             };
 
-            return shape;
+            return myShape;
         }
 
         static float RandomizeFloat()

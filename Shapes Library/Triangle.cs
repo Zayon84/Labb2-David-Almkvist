@@ -22,14 +22,20 @@ namespace Shapes_Library
 
         public override float Circumference => CountDistans(_point1, _point2) + CountDistans(_point1, _point3) + CountDistans(_point3, _point2);
 
-        public override Vector3 Center => throw new NotImplementedException();
+        public override Vector3 Center =>  CalculateCenter();
 
+        private Vector3 CalculateCenter()
+        {
+            float xpos = (_point1.X + _point2.X + _point3.X) / 3;
+            float ypos = (_point1.Y + _point2.Y + _point3.Y) / 3;
+            Vector3 mycenter = new Vector3(xpos, ypos, 0);
+            return mycenter;
+        }
         public override float Area => CalculateTriangleArea(); 
 
         public override string ToString()
-        {
-            // PLACEHOLDERS                                                                                                 // TODO: fix proper values
-            Vector2 tempCenter = new Vector2(8.1f, 7.1f);
+        {                                                                                          // TODO: fix proper values
+            Vector2 tempCenter = new Vector2(Center.X, Center.Y);
             return base.ToString() + $"({tempCenter.X:f1} , {tempCenter.Y:f1})\t\t: " +
                 $"p1({_point1.X:f1} {_point1.Y:f1}), " +
                 $"p2({_point2.X:f1} {_point2.Y:f1}), " +
